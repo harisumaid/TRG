@@ -29,7 +29,7 @@ export default function Testimony({
 
   return (
     <>
-      <div className="w-10/12 sm:w-2/5 lg:w-1/5 rounded-md shadow-xl bg-gray-800 flex flex-col justify-center items-center gap-3 px-8 py-8">
+      <div className="w-10/12 sm:w-2/5 lg:w-1/5 rounded-md shadow-xl bg-gradient-to-br from-slate-800 via-slate-800 to-slate-600 flex flex-col justify-center items-center gap-3 px-8 py-8 transition hover:scale-x-125 hover:scale-y-125 duration-500 ease-in">
         <Image
           width={48}
           height={48}
@@ -40,8 +40,8 @@ export default function Testimony({
         <div className="flex flex-row">
           {starsMap}
         </div>
-        <div className="text-sm sm:text-lg lg:text-xl font-bold text-center" >{clientName}</div>
-        <div className="text-xs sm:text-sm lg:text-lg xl:text-xl font-light text-center" > "{clientTestimony}"</div>
+        <div className="text-sm sm:text-lg lg:text-xl font-bold h-16 line-clamp-3 text-center" >{clientName}</div>
+        <div className="text-xs sm:text-sm lg:text-lg xl:text-xl font-light text-center line-clamp-4 hover:line-clamp-none" > "{clientTestimony}"</div>
       </div>
     </>
   );
