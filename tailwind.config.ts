@@ -17,6 +17,14 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      animation: {
+        'make-visible': '3s 1 normal ease-in-out make-visible forwards'
+      },
+      keyframes: {
+        'make-visible': {
+          '100%': { opacity: '1' }
+        }
+      }
     },
   },
   plugins: [

@@ -2,9 +2,31 @@
 
 import { Disclosure, DisclosureProps, Transition } from "@headlessui/react";
 import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/16/solid";
-import { ReactElement, ReactNode } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const heroText = "Get your thought and idea crafted at.";
+
+  const companyName = "THE ROYAL GRAPHIX";
+
+  const [currCompName, setCurrCompName] = useState("");
+
+  useEffect(()=>{
+    setTimeout(()=>{
+
+      for (let i = 0; i < companyName.length; i++) {
+        setTimeout(()=>{
+          console.log(i);
+          setCurrCompName(companyName.substring(0,i+1));
+        }, (i+1)*100);
+      }  
+      
+    },3500)
+  },[])
+
+
+
+
   return (
     <div className="flex flex-col font-semibold">
       {/* nav bar portions */}
@@ -57,8 +79,22 @@ export default function Home() {
         <div className="flex-initial w-1/12"></div>
       </div>
       <div className="h-screen w-full flex flex-col justify-center items-center gap-10">
-        <div className="w-11/12 md:w-4/5 text-center text-3xl md:text-6xl xl:text-9xl">Get your thought and idea crafted at.</div>
-        <div className="w-11/12 md:w-4/5 text-center text-3xl md:text-6xl xl:text-9xl">THE ROYAL GRAPHIX</div>
+        <div className="w-11/12 md:w-4/5 text-center">
+          {" "}
+          {heroText.split(" ").map((word,index) => (
+            <span 
+              key={index}
+              className={`text-3xl md:text-6xl xl:text-7xl opacity-0 animate-make-visible`}
+              style={{ "animationDelay": index * 0.5 + "s" }}>
+              {word+" "}
+            </span>
+          ))}
+        </div>
+        <div className="w-11/12 md:w-4/5 text-center text-3xl md:text-6xl xl:text-7xl">
+          <span className={currCompName.length > 0 ? "hidden" : "opacity-0"} >{companyName}</span>
+          <span>{currCompName}</span>
+          <span className= {currCompName.length > 0 ? "animate-pulse" : "hidden"} > _</span>
+        </div>
       </div>
       <div className="h-screen w-full ">About us</div>
       <div className="h-screen w-full ">Client Testimony</div>
