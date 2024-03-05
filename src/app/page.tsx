@@ -84,7 +84,9 @@ export default function Home() {
             <>
               <div className="h-full w-full flex items-center justify-between px-6 z-10 shadow-lg">
                 <div>
-                  <b>TRG</b>
+                  <Link href="/">
+                    <b>TRG</b>
+                  </Link>
                 </div>
                 <Disclosure.Button>
                   {open ? (
@@ -156,7 +158,9 @@ export default function Home() {
         <div className="flex-initial w-1/12"></div>
         <div className="mx-9 flex-initial w-1/4">
           <div>
-            <b>TRG</b>
+            <Link href="/">
+              <b>TRG</b>
+            </Link>
           </div>
         </div>
         <div className="flex-initial w-1/3"></div>
