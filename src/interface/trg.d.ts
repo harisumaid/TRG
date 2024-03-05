@@ -1,4 +1,5 @@
 interface testimony {
+  id: number
   stars: number;
   clientName: string;
   clientTestimony: string;

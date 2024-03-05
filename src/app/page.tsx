@@ -18,24 +18,28 @@ export default function Home() {
 
   const testimonies: testimony[] = [
     {
+      id: 1,
       stars: 5,
       clientName: "Smith & Co.",
       clientTestimony:
         "With TRG, our brand soared to new heights. Professionalism, creativity, and results - they deliver it all!",
     },
     {
+      id: 2,
       stars: 5,
       clientName: "BrightStar Enterprises",
       clientTestimony:
         "Thanks to TRG, our signage and branding stand out in the crowd. Exceeded all expectations!",
     },
     {
+      id: 3,
       stars: 5,
       clientName: "Horizon Heights",
       clientTestimony:
         "Choosing TRG was a game-changer. They crafted experiences, not just signs!",
     },
     {
+      id: 4,
       stars: 5,
       clientName: "PrimePro Industries",
       clientTestimony:
@@ -234,7 +238,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-around gap-6 sm:px-12">
             {testimonies.map((testimony, index) => {
-              return <Testimony {...testimony} key={`testimony_${index}`} />;
+              return <Testimony {...testimony} key={testimony.id} />;
             })}
           </div>
         </div>
@@ -260,6 +264,7 @@ export default function Home() {
                     width={250}
                     height={250}
                     alt={`showcase_image_${i}`}
+                    key={`showcase_image_${i}`}
                   ></Image>
                 );
               })}
@@ -328,9 +333,8 @@ export default function Home() {
                     </span>
                   </div>
                 </div>
-                <div className="flex flex-col justify-center mx-0 lg:mx-20">
+                <div className="flex flex-col justify-center  mx-0 lg:mx-20 my-6">
                   <div className="my-2 lg:my-4 font-extrabold">Links.</div>
-                  <div className="my-2 lg:my-4"></div>
                   <ul className="list-disc list-inside">
                     <li className="my-2 lg:my-4 font-extralight">
                       <Link href={"#Home"}>Home</Link>

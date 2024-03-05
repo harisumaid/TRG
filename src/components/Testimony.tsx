@@ -2,14 +2,13 @@ import { testimony } from "@/interface/trg";
 import Image from "next/image";
 
 export default function Testimony({
+  id,
   stars = 5,
   clientName,
   clientTestimony,
   clientImage,
 }: testimony) {
-
-
-  const starsMap = new Array(stars).fill(undefined).map((v,i) => {
+  const starsMap = new Array(stars).fill(undefined).map((v, i) => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +28,10 @@ export default function Testimony({
 
   return (
     <>
-      <div className="w-10/12 sm:w-2/5 lg:w-1/5 rounded-md shadow-xl bg-gradient-to-br from-slate-800 via-slate-800 to-slate-600 flex flex-col justify-center items-center gap-3 px-8 py-8 transition hover:scale-x-125 hover:scale-y-125 duration-500 ease-in">
+      <div
+        key={id}
+        className="w-10/12 sm:w-2/5 lg:w-1/5 rounded-md shadow-xl bg-gradient-to-br from-slate-800 via-slate-800 to-slate-600 flex flex-col justify-center items-center gap-3 px-8 py-8 transition hover:scale-x-125 hover:scale-y-125 duration-500 ease-in"
+      >
         <Image
           width={48}
           height={48}
@@ -37,11 +39,14 @@ export default function Testimony({
           className="w-12 h-12 rounded-full fill-white"
           alt={"profile pic"}
         />
-        <div className="flex flex-row">
-          {starsMap}
+        <div className="flex flex-row">{starsMap}</div>
+        <div className="text-sm sm:text-lg lg:text-xl font-bold h-16 line-clamp-3 text-center">
+          {clientName}
         </div>
-        <div className="text-sm sm:text-lg lg:text-xl font-bold h-16 line-clamp-3 text-center" >{clientName}</div>
-        <div className="text-xs sm:text-sm lg:text-lg xl:text-xl font-light text-center line-clamp-4 hover:line-clamp-none" > "{clientTestimony}"</div>
+        <div className="text-xs sm:text-sm lg:text-lg xl:text-xl font-light text-center line-clamp-4 hover:line-clamp-none">
+          {" "}
+          "{clientTestimony}"
+        </div>
       </div>
     </>
   );
