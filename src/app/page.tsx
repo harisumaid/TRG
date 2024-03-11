@@ -165,9 +165,15 @@ export default function Home() {
         </div>
         <div className="flex-initial w-1/3"></div>
         <div className="flex flex-initial w-1/4 justify-between">
-          <span className="mx-2">About</span>
-          <span className="mx-2">Services</span>
-          <span className="mx-2">Contact</span>
+          <span className="mx-2">
+            <Link href={"#AboutUs"}>About</Link>
+          </span>
+          <span className="mx-2">
+            <Link href={"#ShowCase"}>Works</Link>
+          </span>
+          <span className="mx-2">
+            <Link href={"#ContactUs"}>Contact Us</Link>
+          </span>
         </div>
         <div className="flex-initial w-1/12"></div>
       </div>
