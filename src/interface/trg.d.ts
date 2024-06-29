@@ -1,9 +1,26 @@
 interface testimony {
   id: number
-  stars: number;
-  clientName: string;
-  clientTestimony: string;
-  clientImage?: string | undefined;
+  attributes: {
+    clientRating: number;
+    clientName: string;
+    clientTestimony: string;
+    clientImage?: string | undefined;
+  }
+}
+interface AboutUs {
+  id: number
+  attributes: {
+    aboutHeading: string;
+    aboutDetails: string;
+    aboutImage: string;
+  }
 }
 
-export type { testimony }
+interface Showcase {
+  id: number
+  attributes: {
+    showCaseUrl: string;
+  }
+}
+
+export type { testimony, AboutUs, Showcase }

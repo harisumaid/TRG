@@ -3,12 +3,14 @@ import Image from "next/image";
 
 export default function Testimony({
   id,
-  stars = 5,
-  clientName,
-  clientTestimony,
-  clientImage,
+  attributes: {
+    clientName,
+    clientRating,
+    clientTestimony,
+    clientImage
+  }
 }: testimony) {
-  const starsMap = new Array(stars).fill(undefined).map((v, i) => {
+  const starsMap = new Array(clientRating).fill(undefined).map((v, i) => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +45,7 @@ export default function Testimony({
         <div className="text-sm sm:text-lg lg:text-xl font-bold h-16 line-clamp-3 text-center">
           {clientName}
         </div>
-        <div className="text-xs sm:text-sm lg:text-lg xl:text-xl font-light text-center line-clamp-4 hover:line-clamp-none">
+        <div className="text-xs sm:text-sm lg:text-lg xl:text-xl font-light text-center line-clamp-4 transition-all duration-500 ease-in hover:line-clamp-none">
           {" "}
           "{clientTestimony}"
         </div>
