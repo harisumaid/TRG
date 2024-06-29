@@ -19,7 +19,7 @@ interface AboutUs {
 interface Showcase {
   id: number
   attributes: {
-    showcaseUrl: string;
+    showCaseUrl: string;
   }
 }
 

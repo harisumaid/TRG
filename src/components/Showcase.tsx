@@ -1,10 +1,10 @@
 import Image from "next/image";
 import RevealOnScroll from "./RevealOnScroll";
 import { Showcase } from "@/interface/trg";
+import { getShowcase } from "@/app/actions/cmsActions";
 
 export default async function ShowcaseComponent() {
-  const showcaseReq = await fetch("http://localhost:3000/api/showcase");
-  const showcases: Showcase[] = (await showcaseReq.json()).data;
+  const showcases: Showcase[] = (await getShowcase()).data;  
 
   return (
     <>
@@ -19,14 +19,14 @@ export default async function ShowcaseComponent() {
         </div>
         <div className="flex justify-center items-center">
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
-            {showcases.map((v: Showcase, i) => {
+            {showcases.map((v: Showcase, i) => {              
               return (
                 <Image
-                  src={v.attributes.showcaseUrl}
+                  src={v.attributes.showCaseUrl}
                   className="my-3 rounded-lg transition hover:scale-110 hover:shadow-lg duration-300 ease-in"
                   width={250}
                   height={250}
-                  alt={v.attributes.showcaseUrl}
+                  alt={v.attributes.showCaseUrl}
                   key={v.id}
                 ></Image>
               );

@@ -1,10 +1,10 @@
 import { AboutUs } from "@/interface/trg";
 import Image from "next/image";
 import RevealOnScroll from "./RevealOnScroll";
+import { getAbout } from "@/app/actions/cmsActions";
 
 export default async function About() {
-  const aboutUsReq = await fetch("http://localhost:3000/api/about");
-  const aboutUs: AboutUs = (await aboutUsReq.json()).data;
+  const aboutUs: AboutUs = (await getAbout()).data;  
 
   return (
     <>

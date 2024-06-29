@@ -1,11 +1,11 @@
 import { testimony } from "@/interface/trg";
 import Testimony from "./Testimony";
 import RevealOnScroll from "../RevealOnScroll";
+import { getTestimony } from "@/app/actions/cmsActions";
 
 export default async function TestimonySection() {
-  const testimoniesReq = await fetch("http://localhost:3000/api/testimony");
-  const testimonies: testimony[] = (await testimoniesReq.json())
-    .data as testimony[];
+  // const testimoniesReq = await fetch("/api/testimony");
+  const testimonies: testimony[] = (await getTestimony()).data;
 
   return (
     <>
