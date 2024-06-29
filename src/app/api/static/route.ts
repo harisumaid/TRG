@@ -3,7 +3,7 @@ const { cmsReadApiToken, cmsServerEndpoint } = config;
 
 export async function GET(request: Request){
     try {
-        const res = await fetch(`${cmsServerEndpoint}/api/trg-testimonies`,{
+        const res = await fetch(`${cmsServerEndpoint}/api/trg-static`,{
             headers:{
                 "Authorization": `Bearer ${cmsReadApiToken}`
             }
